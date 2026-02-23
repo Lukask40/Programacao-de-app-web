@@ -1,4 +1,4 @@
-/* RESET DE CONFIGURAÇÕES GERAIS PARA NAVEGADORES */
+/* Reset das configurações padrões do navegador */
 * {
     margin: 0;
     padding: 0;
@@ -6,99 +6,46 @@
 }
 
 body {
-    background-color: #e90909f1;
-    font-family: 'Arial', sans-serif;
-    background-image: url(assets/playstation.jpg);
+    background-color: #f8f5f5;
+    background-image: url("assets/fundo2.png");
+
     background-repeat: no-repeat;
-    background-position: center;
     background-size: cover;
+    background-position: center;
     background-attachment: fixed;
+    font-family: "Comic Sans MS";
 }
 
-h1 {
+h2 {
+    font-size: 60px;
     text-align: center;
-    color: #d80d0ddc;
-    font-size: 50px;
-    margin: 20px 0;
 }
 
 p {
-    text-align: justify;
     font-size: 15px;
-    font-family: 'Arial';
-    margin: 20px;
-    color: #0f4ed6;
-
-}
-hr{
-    max-width: 50%;
-    margin: 0 auto;
+    text-align: justify;
+    margin: 30px 20px;
+    font-family: "";
+    color: rgb(8, 230, 230);
+    
 }
 
-
-a{
+a {
     display: block;
     text-align: center;
     text-decoration: none;
-    margin: 10px auto;
-    color: brown;
-    
-}
-button {
-    display: block;
-    height: auto;
-    margin:20px auto;
-    padding: 10px 30px;
-    border-radius: 6px;
-    text-decoration: none;
-}
-
-ol {
-    margin: 10px auto;
-    padding: 30px auto;
-    margin-bottom: 30px;
-    text-align: center;
-    
-}
-
-li {
-    font-size: 25px;
-    margin-bottom: 10px;
-    font-weight: 500;
-    
-    
 }
 
 img {
     display: block;
-    max-width: 300px;
     margin: 10px auto;
-   
-    
+    max-width: 300px;
 }
 
-h3 {
-    text-align: center;
-    color: #010105dc;
-    font-size: 30px;
-    margin: 20px 0;
-}
-
-
-input-group {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
-    margin: 20px auto;
-    width: 100%;
-}
-
-input[type="text"] {
-    margin: 0px auto;
-    text-align: center;
+button {
     display: block;
-    border-radius: 3px;
-    outline: none;
-    
+    margin: 20px auto;
+    padding: 5px 30px;
+    border-radius: 30px;
+    cursor: pointer;
 }
