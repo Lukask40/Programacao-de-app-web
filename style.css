@@ -5,9 +5,31 @@
     box-sizing: border-box;
 }
 
-body {
+.index {
     background-color: #f8f5f5;
     background-image: url("assets/fundo2.png");
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "Comic Sans MS";
+}
+
+.segunda-pagina {
+    background-color: #f8f5f5;
+    background-image: url("assets/fundo1.webp");
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "Comic Sans MS";
+}
+
+.terceira-pagina {
+    background-color: #f8f5f5;
+    background-image: url("assets/fundo8.webp");
 
     background-repeat: no-repeat;
     background-size: cover;
@@ -19,6 +41,10 @@ body {
 h2 {
     font-size: 60px;
     text-align: center;
+    margin: 30px 20px;
+    font-family: "Comic Sans MS";
+    color: rgb(8, 230, 230);
+
 }
 
 p {
@@ -37,9 +63,10 @@ a {
 }
 
 img {
-    display: block;
+    
     margin: 10px auto;
     max-width: 300px;
+    ;
 }
 
 button {
@@ -48,4 +75,17 @@ button {
     padding: 5px 30px;
     border-radius: 30px;
     cursor: pointer;
+}
+ol {
+    list-style-position: inside;
+    padding: 30px auto;
+    color: rgb(8, 190, 190);
+    text-align: center;
+    
+}
+
+li {
+    font-size: 25px;
+    font-weight: bold;
+    
 }
