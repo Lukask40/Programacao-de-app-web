@@ -53,3 +53,20 @@ const nomes = listaDeUsuarios.map( usuario => usuario.nome )
 nomes.forEach( nome =>
     console.log(nome)
     )
+
+console.log("\nEncontrando um usuario.")
+const usuarioEncontrado = listaDeUsuarios.find( usuario => usuario.nome === "Ana" )
+// console.log(usuarioEncontrado)
+console.log(`Nome: ${usuarioEncontrado.nome}, \nIdade: ${usuarioEncontrado.idade} anos.`)
+
+console.log("\nEncontrando um usuario de 45 anos.")
+const usuario45 = listaDeUsuarios.find( usuario => usuario.idade === 45 )
+console.log(usuario45)
+console.log(`Nome: ${usuario45.nome}, \nIdade: ${usuario45.idade} anos.`)
+
+console.log("\nNa lista de usuarios, somando todas as idades.")
+const somaDasIdades = listaDeUsuarios.reduce( (total, usuario) => total + usuario.idade, 0 )
+console.log(somaDasIdades)
+
+
+
