@@ -1,0 +1,144 @@
+/* 1. O import DA FONTE DEVE SER A PRIMEIRA LINHA DO ARQUIVO */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
+/* 2. Faltava o asterisco (*) aqui para resetar as margens de tudo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* 3. Juntamos a imagem e o gradiente para um não apagar o outro */
+    background-image: url("assets/fundo2.png"), linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+    font-family: 'Comic Neue', cursive, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden; /* Isso impede que a tela crie barras de rolagem por causa dos objetos voando */
+}
+
+/* O título principal entra quicando */
+h1 {
+    color: #fff;
+    text-shadow: 3px 3px 0px #ff6a00, 5px 5px 0px rgba(0,0,0,0.2);
+    font-size: 2.5rem;
+    animation: quicarEntrada 1s ease-out;
+    text-align: center;
+}
+
+/* Estilo das etiquetas (Nome, nota 1...) */
+label {
+    font-size: 1.3rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* As caixas de texto */
+input {
+    padding: 12px 20px;
+    border: 4px dashed #ff9a9e;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-family: 'Comic Neue', cursive;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Efeito elástico */
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 250px;
+    text-align: center;
+}
+
+/* O que acontece quando você clica dentro da caixa para digitar */
+input:focus {
+    transform: scale(1.15) rotate(-2deg); /* Dá um zoom e uma leve tortinha */
+    border-color: #ff6a00;
+    box-shadow: 0 0 20px rgba(255, 106, 0, 0.5);
+    background: #fff;
+}
+
+/* O botão de calcular - Bem grande e animado */
+button {
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    font-family: 'Comic Neue', cursive;
+    font-weight: bold;
+    color: white;
+    background: #ff6a00;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(255, 106, 0, 0.4);
+    transition: all 0.3s ease;
+    animation: pulso 2s infinite; /* Fica pulsando pedindo pra ser clicado */
+}
+
+/* Quando passa o mouse por cima do botão */
+button:hover {
+    transform: translateY(-10px) scale(1.1);
+    box-shadow: 0 15px 20px rgba(255, 106, 0, 0.6);
+    background: #ff8c00;
+}
+
+button:active {
+    transform: translateY(2px); /* Efeito de afundar ao clicar */
+}
+
+/* Onde a média vai aparecer */
+#resultadoMedia {
+    margin-top: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    min-height: 40px;
+    text-transform: uppercase;
+}
+
+/* --- ANIMAÇÕES MÁGICAS --- */
+
+@keyframes quicarEntrada {
+    0% { transform: scale(0.1); opacity: 0; }
+    60% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes pulso {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Essa é a animação que faz os objetos voarem de baixo pra cima */
+@keyframes voar {
+    0% { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(-20vh) rotate(360deg) scale(1.5); opacity: 0; }
+}
+
+/* Estilo base dos símbolos matemáticos */
+.simbolo-matematico {
+    position: absolute;
+    font-size: 4rem;
+    font-weight: bold;
+    z-index: -1; /* Mantém eles atrás do texto e dos inputs */
+    user-select: none; /* Impede de selecionar com o mouse */
+}
+
+/* Posições, cores e tempos diferentes para cada símbolo não voar junto */
+.s1 { left: 10%; animation: voar 8s linear infinite; color: #ff9a9e; }
+.s2 { left: 30%; animation: voar 12s linear infinite 2s; color: #fecfef; }
+.s3 { left: 50%; animation: voar 10s linear infinite 4s; color: #fff; font-size: 5rem; opacity: 0.5;}
+.s4 { left: 70%; animation: voar 15s linear infinite 1s; color: #fdcbf1; }
+.s5 { left: 85%; animation: voar 9s linear infinite 3s; color: #e0c3fc; }

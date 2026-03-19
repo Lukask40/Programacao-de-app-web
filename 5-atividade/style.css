@@ -1,0 +1,201 @@
+/* --- IMPORTANDO UMA FONTE REDONDINHA E AMIGÁVEL --- */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Fundo de céu azul num dia ensolarado na fazenda */
+    background: linear-gradient(to bottom, #74ebd5 0%, #a8e6cf 100%);
+    font-family: 'Fredoka', sans-serif;
+    color: #4a3b32; /* Marrom escuro rústico para o texto */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Mantém as maçãs caindo sem criar barra de rolagem */
+    position: relative;
+}
+
+/* --- CARTÃO PRINCIPAL (ESTILO PLACA DE MADEIRA/MERCADINHO) --- */
+.main-container {
+    background: #fffdf5; /* Cor de creme clarinho */
+    border: 6px dashed #dcae78; /* Borda tracejada de madeira */
+    border-radius: 25px;
+    padding: 40px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15), inset 0 0 20px rgba(220, 174, 120, 0.2);
+    z-index: 10;
+    text-align: center;
+    position: relative;
+    animation: balancoPlaca 1s ease-out;
+}
+
+.main-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), inset 0 0 20px rgba(220, 174, 120, 0.4);
+    transition: all 0.3s ease;
+}
+
+/* --- LOGO DA LOJA --- */
+.store-logo {
+    max-width: 110px; /* Tamanho da logo */
+    height: 110px; /* Força a altura a ser igual a largura */
+    object-fit: cover; /* Garante que a imagem não fique esticada se não for quadrada */
+    border-radius: 50%; /* Deixa a logo perfeitamente redonda */
+    border: 4px solid #e63946; /* Borda vermelha combinando com o título */
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3); /* Sombra avermelhada */
+    margin-bottom: 15px;
+    animation: flutuarLogo 3s ease-in-out infinite; /* Fica flutuando de levinho */
+}
+
+/* --- TÍTULOS --- */
+h1 {
+    font-family: 'Nunito', sans-serif;
+    color: #e63946; /* Vermelho maçã vibrante */
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 0px #ffb3b3;
+    margin-bottom: 5px;
+    animation: puloTitulo 2s infinite alternate ease-in-out;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #6d594b;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* --- FORMULÁRIO E INPUTS --- */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    position: relative;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #4a3b32;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 15px;
+    background: #ffffff;
+    border: 3px solid #a8e6cf; /* Borda verdinha */
+    border-radius: 12px;
+    color: #4a3b32;
+    font-size: 1.2rem;
+    font-family: 'Fredoka', sans-serif;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    text-align: center;
+}
+
+input[type="number"]:focus {
+    border-color: #e63946;
+    background: #fff8f8;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.2);
+}
+
+/* --- BOTÃO (VERMELHO SUCULENTO) --- */
+button {
+    background: linear-gradient(135deg, #ff4d4d 0%, #cc0000 100%);
+    color: white;
+    border: none;
+    padding: 16px 30px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 50px; 
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(204, 0, 0, 0.3), inset 0 -4px 0 rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ff6666 0%, #e60000 100%);
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 12px 20px rgba(204, 0, 0, 0.4), inset 0 -4px 0 rgba(0,0,0,0.2);
+}
+
+button:active {
+    transform: translateY(4px); 
+    box-shadow: 0 2px 5px rgba(204, 0, 0, 0.4), inset 0 -2px 0 rgba(0,0,0,0.2);
+}
+
+/* --- RESULTADO --- */
+#resultadoCompra {
+    margin-top: 25px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2d6a4f; /* Verde escuro (folha) */
+    min-height: 1.5rem;
+    animation: aparecerResultado 0.5s ease-out;
+}
+
+/* --- ANIMAÇÕES DAS MAÇÃS E FOLHAS CAINDO NO FUNDO --- */
+.falling-object {
+    position: absolute;
+    z-index: -1;
+    user-select: none;
+    pointer-events: none;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
+}
+
+.apple::after { content: '🍎'; font-size: 3rem; }
+.green-apple::after { content: '🍏'; font-size: 2.5rem; }
+.leaf::after { content: '🍃'; font-size: 2rem; }
+
+@keyframes fall {
+    0% { transform: translateY(-15vh) rotate(0deg) translateX(0); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(360deg) translateX(50px); opacity: 0; }
+}
+
+.a1 { left: 10%; animation: fall 8s linear infinite; }
+.l1 { left: 25%; animation: fall 12s linear infinite 2s; }
+.ga1 { left: 45%; animation: fall 10s linear infinite 5s; }
+.a2 { left: 60%; animation: fall 9s linear infinite 1s; }
+.l2 { left: 75%; animation: fall 15s linear infinite 4s; }
+.ga2 { left: 85%; animation: fall 11s linear infinite 7s; }
+.l3 { left: 5%; animation: fall 14s linear infinite 8s; }
+.a3 { left: 90%; animation: fall 7s linear infinite 3s; }
+
+/* --- OUTROS KEYFRAMES --- */
+@keyframes balancoPlaca {
+    0% { transform: translateY(-50px) rotate(-5deg); opacity: 0; }
+    50% { transform: translateY(10px) rotate(3deg); }
+    100% { transform: translateY(0) rotate(0); opacity: 1; }
+}
+
+@keyframes puloTitulo {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+}
+
+@keyframes aparecerResultado {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Animação nova da logo flutuando */
+@keyframes flutuarLogo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
