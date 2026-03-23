@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at center, #020024, #000);
+    font-family: Arial;
+    color: white;
+    overflow: hidden;
+}
+
+/* ENERGIA */
+.energia {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: cyan;
+    border-radius: 50%;
+    filter: blur(150px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulsar 3s infinite alternate;
+}
+
+@keyframes pulsar {
+    from { transform: translate(-50%, -50%) scale(1);}
+    to { transform: translate(-50%, -50%) scale(1.5);}
+}
+
+/* CONTAINER */
+.container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-top: 100px;
+}
+
+h1 {
+    font-size: 40px;
+    color: cyan;
+    text-shadow: 0 0 20px cyan;
+}
+
+/* INPUTS */
+input {
+    padding: 12px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* BOTÃO */
+button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    background: cyan;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.2);
+}
+
+/* RESULTADO */
+#res {
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+/* OLHOS DIFERENTES */
+.olhos {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+}
+
+.olho {
+    width: 120px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 40px cyan;
+    animation: piscar 4s infinite;
+}
+
+@keyframes piscar {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+}

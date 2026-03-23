@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #010103; /* Preto profundo */
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Impede barras de rolagem para focar na expansão */
+    position: relative;
+}
+
+/* --- LOGOTIPO NEON NO TOPO (Novo) --- */
+.header-logo {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 50; /* Sempre no topo de tudo */
+    animation: entradaLogo 1s ease-out;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+}
+
+.infinity-path {
+    stroke-dasharray: 250;
+    stroke-dashoffset: 250;
+    animation: desenharInfinito 4s linear infinite, brilhoInfinito 2s infinite alternate;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 0 10px #fff;
+}
+
+.logo-text .tech {
+    background: linear-gradient(90deg, #00f2fe, #8a2be2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400;
+}
+
+@keyframes entradaLogo {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes desenharInfinito {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes brilhoInfinito {
+    0% { filter: drop-shadow(0 0 5px #00f2fe); }
+    100% { filter: drop-shadow(0 0 15px #8a2be2); }
+}
+
+/* --- FUNDO ESTRELADO --- */
+.stars-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+    background-position: 0 0, 40px 60px, 130px 270px;
+    z-index: 0;
+    opacity: 0.3;
+    animation: moverEstrelas 20s linear infinite;
+}
+
+@keyframes moverEstrelas {
+    from { background-position: 0 0, 40px 60px, 130px 270px; }
+    to { background-position: -550px -550px, -310px -290px, -120px -30px; }
+}
+
+/* --- ENERGIA AMALDIÇOADA --- */
+.hollow-purple-orb, .blue-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(130px);
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.hollow-purple-orb {
+    width: 600px; height: 600px;
+    background: #8a2be2;
+    top: -150px; right: -150px;
+    animation: pulsarRoxo 8s infinite alternate-reverse;
+}
+
+.blue-orb {
+    width: 550px; height: 550px;
+    background: #00f2fe;
+    bottom: -150px; left: -150px;
+    animation: pulsarAzul 10s infinite alternate;
+}
+
+@keyframes pulsarRoxo { 100% { transform: translate(-200px, 200px) scale(1.3); opacity: 0.8; } }
+@keyframes pulsarAzul { 100% { transform: translate(200px, -200px) scale(1.2); opacity: 0.8; } }
+
+/* --- OS SEIS OLHOS (FOCO CENTRAL - AGORA APARECEM!) --- */
+.gojo-eyes-container {
+    position: fixed; /* Fica fixo na tela */
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza perfeitamente no meio */
+    z-index: 2; /* Atrás do container (z: 10), na frente do fundo (z: 1) */
+    pointer-events: none; /* Não atrapalha cliques no formulário */
+}
+
+.gojo-eyes {
+    display: flex;
+    gap: 250px; /* Aumentado para o container caber no meio */
+    opacity: 0.95;
+    transform: scale(1); /* Controla o tamanho dos olhos */
+    animation: entradaOlhos 1.5s ease-out;
+}
+
+@keyframes entradaOlhos { from { opacity: 0; transform: scale(0.5); } to { opacity: 0.95; transform: scale(1); } }
+
+.eye {
+    width: 140px; height: 45px;
+    background: #e6faff;
+    border-radius: 50% / 60% 60% 40% 40%;
+    position: relative;
+    /* Brilho Rikugan Insano */
+    box-shadow: 
+        0 0 40px #00f2fe, 0 0 80px #00f2fe, 0 0 120px #ffffff,
+        inset 0 0 20px #ffffff;
+    animation: brilhoOlhos 3s infinite alternate, piscarOlhos 5s infinite; /* Piscar mais agressivo */
+}
+
+.eye::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px; height: 28px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #00f2fe, 0 0 40px #fff;
+    animation: moverPupila 5s infinite ease-in-out;
+}
+
+@keyframes brilhoOlhos {
+    0% { box-shadow: 0 0 30px #00f2fe, 0 0 60px #00f2fe, inset 0 0 15px #fff; }
+    100% { box-shadow: 0 0 70px #00f2fe, 0 0 140px #fff, 0 0 200px #fff, inset 0 0 30px #fff; }
+}
+
+@keyframes piscarOlhos {
+    0%, 46%, 47%, 48%, 52%, 53%, 54%, 100% { transform: scaleY(1); }
+    46.5%, 47.5%, 52.5%, 53.5% { transform: scaleY(0.01); } /* Dois piscares ultra rápidos */
+}
+
+@keyframes moverPupila {
+    0% { transform: translate(-80%, -50%); }
+    20% { transform: translate(40%, -50%); }
+    50% { transform: translate(-10%, -60%); }
+    80% { transform: translate(-60%, -40%); }
+    100% { transform: translate(-80%, -50%); }
+}
+
+/* --- CONTAINER INTERFACE (SUPER BRILHO ATIVADO) --- */
+.container {
+    background: rgba(8, 8, 12, 0.7);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 2px solid transparent;
+    border-radius: 24px;
+    padding: 50px 40px;
+    width: 95%;
+    max-width: 480px;
+    z-index: 10; /* Fica na frente dos olhos */
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    box-shadow: 0 0 50px rgba(0, 242, 254, 0.4), inset 0 0 30px rgba(138, 43, 226, 0.2);
+    animation: flutuarContainer 6s infinite ease-in-out, bordaNeonGojo 5s infinite alternate;
+}
+
+@keyframes flutuarContainer {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-25px) scale(1.03); }
+}
+
+@keyframes bordaNeonGojo {
+    0% { border-color: rgba(0, 242, 254, 0.4); box-shadow: 0 0 40px rgba(0, 242, 254, 0.4); }
+    100% { border-color: rgba(138, 43, 226, 0.9); box-shadow: 0 0 70px rgba(138, 43, 226, 0.6); }
+}
+
+/* --- TEXTOS INTERFACE --- */
+.titulo-gojo {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #00f2fe, #fff, #8a2be2, #00f2fe);
+    background-size: 300% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(0, 242, 254, 0.8);
+    letter-spacing: 2px;
+    animation: brilhoTextoFluxo 4s infinite linear;
+}
+
+@keyframes brilhoTextoFluxo { to { background-position: 300% center; } }
+
+.subtitulo { text-align: center; color: #a0aec0; font-size: 15px; margin-bottom: 25px; }
+
+/* --- INPUTS --- */
+.input-group { display: flex; flex-direction: column; gap: 7px; }
+
+label { font-size: 13px; color: #00f2fe; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; text-shadow: 0 0 10px #00f2fe; }
+
+input {
+    padding: 16px; border-radius: 14px;
+    border: 2px solid rgba(0, 242, 254, 0.3);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff; font-size: 20px; text-align: center;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+input:focus {
+    border-color: #8a2be2;
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.9);
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Erro Ativo */
+input.input-erro {
+    border-color: #ff0055;
+    box-shadow: 0 0 30px rgba(255, 0, 85, 0.9);
+    animation: tremerAtaqueReverso 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes tremerAtaqueReverso {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(8px) rotate(1deg); }
+}
+
+/* --- BOTÃO --- */
+button {
+    margin-top: 25px; padding: 20px;
+    border: none; border-radius: 14px;
+    background: linear-gradient(45deg, #00f2fe, #8a2be2, #ffffff, #00f2fe);
+    background-size: 300% auto;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px; font-weight: 900;
+    cursor: pointer; text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: all 0.4s;
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.6);
+    animation: brilhoBotaoFluxo 3s infinite linear;
+}
+
+@keyframes brilhoBotaoFluxo { to { background-position: 300% center; } }
+
+button:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 20px 50px rgba(0, 242, 254, 1);
+    letter-spacing: 5px; /* Efeito visual de expansão de energia */
+}
+
+button:active { transform: translateY(3px) scale(0.96); }
+
+/* --- RESULTADOS (NOVA ANIMAÇÃO DE ENTRADA) --- */
+#resultado {
+    margin-top: 30px; text-align: center;
+    font-size: 19px; padding: 25px;
+    border-radius: 14px; font-weight: 600;
+    transition: all 0.5s ease;
+    min-height: 80px;
+    display: flex; flex-direction: column; justify-content: center;
+    opacity: 0; transform: translateY(20px);
+}
+
+#resultado:not(:empty) {
+    opacity: 1; transform: translateY(0);
+}
+
+.aprovado {
+    color: #00ffcc; background: rgba(0, 255, 204, 0.15);
+    border: 2px solid #00ffcc;
+    box-shadow: 0 0 40px rgba(0, 255, 204, 0.7);
+    text-shadow: 0 0 10px #00ffcc;
+}
+
+.recuperacao {
+    color: #ffaa00; background: rgba(255, 170, 0, 0.15);
+    border: 2px solid #ffaa00;
+    box-shadow: 0 0 40px rgba(255, 170, 0, 0.7);
+    text-shadow: 0 0 10px #ffaa00;
+}
+
+.reprovado {
+    color: #ff0055; background: rgba(255, 0, 85, 0.15);
+    border: 2px solid #ff0055;
+    box-shadow: 0 0 40px rgba(255, 0, 85, 0.7);
+    text-shadow: 0 0 10px #ff0055;
+}
