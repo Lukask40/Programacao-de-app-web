@@ -1,0 +1,192 @@
+/* Importando uma fonte limpa para os textos e usando Impact para o título */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --marvel-red: #ED1D24;
+  --marvel-dark: #151515;
+  --marvel-gold: #F0A30A;
+  --marvel-text: #FFFFFF;
+}
+
+/* Container Principal do Card */
+.info-aluno {
+  background: linear-gradient(145deg, var(--marvel-dark) 0%, #000000 100%);
+  color: var(--marvel-text);
+  font-family: 'Roboto', sans-serif;
+  padding: 35px 25px;
+  border-radius: 8px;
+  width: 320px;
+  margin: 40px auto;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(237, 29, 36, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(237, 29, 36, 0.1);
+  
+  /* Transição suave para o hover do card */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  /* Animação de entrada do card */
+  animation: heroEntrance 1s ease-out forwards;
+}
+
+/* Efeito de "Halftone" (Pontilhismo de Quadrinhos) no fundo */
+.info-aluno::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Efeito ao passar o mouse no Card inteiro */
+.info-aluno:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--marvel-red);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8), 
+              0 0 25px rgba(237, 29, 36, 0.5), 
+              0 0 10px rgba(240, 163, 10, 0.4); /* Brilho estilo Homem de Ferro */
+}
+
+/* Estilo do Título (Inspirado no logo da Marvel) */
+.info-aluno h2 {
+  position: relative;
+  z-index: 1;
+  background-color: var(--marvel-red);
+  color: var(--marvel-text);
+  font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transform: skewX(-8deg); /* Inclinação clássica */
+  box-shadow: 4px 4px 0px var(--marvel-dark);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animação do título no hover do card */
+.info-aluno:hover h2 {
+  transform: skewX(0deg) scale(1.05);
+  box-shadow: 4px 4px 0px var(--marvel-gold);
+}
+
+/* Estilo das Informações (Parágrafos) */
+.info-aluno p {
+  position: relative;
+  z-index: 1;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin: 15px 0;
+  padding-left: 15px;
+  border-left: 3px solid rgba(255, 255, 255, 0.1);
+  color: #cccccc;
+  
+  /* Prepara os parágrafos para a animação de entrada */
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideInRight 0.5s forwards;
+  transition: all 0.3s facil;
+}
+
+/* Cascata de animações: cada linha entra num tempo diferente */
+.info-aluno p:nth-child(2) { animation-delay: 0.3s; }
+.info-aluno p:nth-child(3) { animation-delay: 0.5s; }
+.info-aluno p:nth-child(4) { animation-delay: 0.7s; }
+
+/* Efeito interativo em cada linha de informação */
+.info-aluno p:hover {
+  color: var(--marvel-text);
+  border-left-color: var(--marvel-gold);
+  transform: translateX(10px);
+  text-shadow: 0 0 8px rgba(240, 163, 10, 0.8);
+  cursor: default;
+}
+
+/* =========================================
+   KEYFRAMES (As Animações Mágicas)
+   ========================================= */
+
+/* Animação de entrada do card (Efeito 3D) */
+@keyframes heroEntrance {
+  0% { 
+    opacity: 0; 
+    transform: perspective(600px) rotateX(20deg) translateY(50px) scale(0.9); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: perspective(600px) rotateX(0deg) translateY(0) scale(1); 
+  }
+}
+
+/* Animação de entrada dos textos (Deslizando da esquerda) */
+@keyframes slideInRight {
+  0% { 
+    opacity: 0; 
+    transform: translateX(-30px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+/* 1. Transição do Card Principal */
+.info-aluno {
+  /* ... mantenha o resto do código do card (background, padding, etc) ... */
+  
+  /* Aqui está a transição principal: suave e com efeito "elástico" */
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.5s ease,
+              border-color 0.5s ease;
+}
+
+/* 2. Transição do Título (Logo Marvel) */
+.info-aluno h2 {
+  /* ... mantenha o resto do código do h2 ... */
+  
+  /* Transição suave para a inclinação (skew) e a sombra ao passar o mouse */
+  transition: transform 0.4s ease-out, 
+              box-shadow 0.4s ease-out,
+              background-color 0.4s ease;
+}
+
+/* 3. Transição das Informações (Parágrafos) */
+.info-aluno p {
+  /* ... mantenha o resto do código do p ... */
+  
+  /* CORREÇÃO AQUI: Transição para a cor, borda, posição e brilho */
+  transition: color 0.3s ease,
+              border-left-color 0.3s ease,
+              transform 0.3s ease-out,
+              text-shadow 0.3s ease;
+}
+
+/* Efeito Hover do Card Inteiro (Gatilho das transições) */
+.info-aluno:hover {
+  transform: translateY(-12px) scale(1.03);
+  border-color: var(--marvel-red);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 
+              0 0 30px rgba(237, 29, 36, 0.6), 
+              0 0 15px rgba(240, 163, 10, 0.5);
+}
+
+/* Efeito Hover do Título (Gatilho das transições) */
+.info-aluno:hover h2 {
+  transform: skewX(0deg) scale(1.08);
+  box-shadow: 6px 6px 0px var(--marvel-gold);
+  background-color: #ff2a31; /* Fica um vermelho levemente mais claro */
+}
+
+/* Efeito Hover Individual nos Parágrafos (Gatilho das transições) */
+.info-aluno p:hover {
+  color: var(--marvel-text);
+  border-left-color: var(--marvel-gold);
+  transform: translateX(12px);
+  text-shadow: 0 0 10px rgba(240, 163, 10, 0.9);
+}

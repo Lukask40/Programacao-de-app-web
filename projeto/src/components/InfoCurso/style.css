@@ -1,0 +1,161 @@
+/* Importando uma fonte clean e impactante para o tema */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --dc-bg-dark: #0b0d10; /* Quase preto, metal urbano */
+  --dc-accent-blue: #003a7a; /* Azul escuro heróico */
+  --dc-electric-blue: #2aa1f1; /* Azul elétrico para detalhes */
+  --dc-hero-gold: #c5a059; /* Dourado escovado (Mulher Maravilha/Superman) */
+  --dc-text-light: #e0e0e0;
+  --dc-text-silver: #c0c0c0; /* Prata para títulos */
+}
+
+/* Container Principal do Card (O "Salão") */
+.info-curso {
+  font-family: 'Roboto', sans-serif;
+  background: radial-gradient(circle at 50% 100%, #15191f 0%, var(--dc-bg-dark) 100%);
+  color: var(--dc-text-light);
+  width: 350px;
+  margin: 50px auto;
+  padding: 0; /* Tiramos o padding para a barra do título ocupar tudo */
+  border-radius: 4px; /* Cantos mais retos, mais austeros */
+  border: 2px solid rgba(197, 160, 89, 0.1); /* Dourado muito sutil */
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  
+  /* =========================================
+     TRANSIÇÕES DO CARD INTEIRO
+     ========================================= */
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.6s ease,
+              border-color 0.4s ease;
+  
+  /* Animação de Entrada: Um surgimento das sombras */
+  animation: dcEntrance 1.2s ease-out forwards;
+}
+
+/* Efeito Hover no Card Inteiro */
+.info-curso:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(197, 160, 89, 0.4); /* O dourado acorda */
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.9), 
+              0 0 25px rgba(0, 58, 122, 0.4), /* Brilho azul */
+              0 0 10px rgba(197, 160, 89, 0.2); /* Brilho dourado */
+}
+
+/* Estilo do Título (Sombrio, Metálico e Sério) */
+.info-curso h2 {
+  font-family: 'Oswald', sans-serif; /* Fonte para títulos */
+  text-transform: uppercase;
+  color: var(--dc-text-silver);
+  background-color: #050608; /* Mais escuro que o background */
+  padding: 15px 25px;
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: 1.5px;
+  border-bottom: 3px solid var(--dc-accent-blue);
+  position: relative;
+  
+  /* Prepara os efeitos visuais no h2 */
+  transition: transform 0.4s ease, 
+              color 0.4s ease, 
+              border-bottom-color 0.4s ease;
+}
+
+/* Pseudo-elemento para o efeito de brilho no título ao hover */
+.info-curso h2::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: var(--dc-hero-gold);
+  transition: width 0.5s ease;
+}
+
+/* Efeitos Hover no Título (Gatilho das Transições) */
+.info-curso:hover h2 {
+  color: #FFFFFF;
+  border-bottom-color: transparent;
+  transform: skewX(-5deg); /* Leve inclinação ao hover */
+}
+
+.info-curso:hover h2::after {
+  width: 100%; /* O dourado cobre a borda azul */
+}
+
+/* Estilo das Informações (Parágrafos) */
+.info-curso p {
+  padding: 15px 25px;
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between; /* Texto e Valor separados */
+  
+  /* Prepara as transições de cor e posição individual */
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              padding-left 0.3s ease-out;
+  
+  /* Animação de entrada em cascata */
+  opacity: 0;
+  animation: pSlideDown 0.6s ease-out forwards;
+}
+
+/* Cascata de animações nos parágrafos */
+.info-curso p:nth-of-type(1) { animation-delay: 0.5s; }
+.info-curso p:nth-of-type(2) { animation-delay: 0.7s; }
+.info-curso p:nth-of-type(3) { animation-delay: 0.9s; border-bottom: none; /* Último item sem borda */ }
+
+/* Efeito Hover Individual nos Parágrafos (Transições) */
+.info-curso p:hover {
+  background-color: rgba(0, 58, 122, 0.15); /* Fundo azul sutil */
+  color: #FFFFFF;
+  padding-left: 35px; /* "Afasta" o texto para o lado */
+}
+
+/* Destaque para o valor após o rótulo */
+.info-curso p::after {
+  content: '✓'; /* Um checkmark heróico (Opcional, pode remover se preferir) */
+  opacity: 0;
+  color: var(--dc-hero-gold);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scale(0);
+}
+
+.info-curso p:hover::after {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+
+/* =========================================
+   KEYFRAMES (As Animações Mágicas da DC)
+   ========================================= */
+
+/* Animação de Entrada do Card (Materializando das Sombras) */
+@keyframes dcEntrance {
+  0% { 
+    opacity: 0; 
+    transform: scale(1.1) rotateY(15deg) translateY(30px);
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1) rotateY(0deg) translateY(0);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* Animação de Entrada dos Textos (Deslizando para baixo) */
+@keyframes pSlideDown {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-20px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
