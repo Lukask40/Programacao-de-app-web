@@ -1,0 +1,197 @@
+/* Importando uma fonte moderna do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* --- Variáveis de Tema (Dark/Neon Moderno) --- */
+:root {
+  --primary: #6366f1; /* Indigo */
+  --primary-hover: #8b5cf6; /* Violeta */
+  --bg-page: #0f172a;
+  --bg-card: #1e293b;
+  --bg-input: #0f172a;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --border-focus: #6366f1;
+}
+
+/* Opcional: Estilo para o body inteiro caso queira centralizar o formulário na tela */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* --- Container Principal --- */
+.formulario {
+  background: var(--bg-card);
+  width: 100%;
+  max-width: 400px;
+  padding: 2.5rem;
+  border-radius: 20px;
+  /* Sombra principal e um brilho sutil no topo para efeito de vidro */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  /* Animação de entrada suave */
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* --- Títulos --- */
+.formulario h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, #a5b4fc, #c4b5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- Formulário e Inputs --- */
+.formulario form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formulario input {
+  width: 100%;
+  padding: 14px 16px;
+  background-color: var(--bg-input);
+  border: 2px solid var(--border-color);
+  color: var(--text-main);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  /* Transições para o hover e focus */
+  transition: all 0.3s ease;
+}
+
+.formulario input::placeholder {
+  color: var(--text-muted);
+}
+
+.formulario input:hover {
+  border-color: #475569;
+}
+
+/* Animação ao focar no input (clicar nele) */
+.formulario input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+  transform: translateY(-2px);
+}
+
+/* --- Botão --- */
+.formulario button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  /* Transições suaves */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animação de levitação e brilho no botão ao passar o mouse */
+.formulario button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+}
+
+/* Efeito de clique no botão */
+.formulario button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 5px 10px rgba(99, 102, 241, 0.3);
+}
+
+/* --- Linha Divisória --- */
+.formulario hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+  margin: 2rem 0;
+}
+
+/* --- Lista de Usuários --- */
+.formulario ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* Adiciona rolagem se tiver muitos usuários */
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 5px; /* Espaço para a barra de rolagem */
+}
+
+/* Customizando a barra de rolagem da lista */
+.formulario ul::-webkit-scrollbar {
+  width: 6px;
+}
+.formulario ul::-webkit-scrollbar-track {
+  background: transparent;
+}
+.formulario ul::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 10px;
+}
+
+/* --- Itens da Lista (Cards de Usuários) --- */
+.formulario li {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  /* Animação popIn ao ser adicionado na tela */
+  animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+/* Destaque no hover do usuário */
+.formulario li:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--primary);
+  color: var(--text-main);
+  transform: translateX(8px);
+  box-shadow: -4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Keyframes (Animações) --- */
+
+/* Animação para o formulário subir e aparecer */
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animação para os itens da lista pipocarem na tela */
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

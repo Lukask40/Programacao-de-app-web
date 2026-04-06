@@ -1,4 +1,5 @@
 import './style.css'
+import { useState } from 'react'
 
 export default function AdicionarUsuario() {
     const [nome, setNome] = useState('')
@@ -21,7 +22,14 @@ export default function AdicionarUsuario() {
                 <input
                     type='text'
                     value={nome}
+                    placeholder='Nome'
                     onChange={(e) => setNome(e.target.value)}
+                    />
+                    <input
+                    type='text'
+                    placeholder='Email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     />
                     <button type='submit'>Adicionar</button>
             </form>
@@ -32,7 +40,7 @@ export default function AdicionarUsuario() {
             <ul>
                 {listaDeUsuarios.map((usuario, index) => (
                     <li key={index}>
-                        (usuario.nome) - (usuario.email)
+                        {usuario.nome} - {usuario.email}
                     </li>
                 ))}
             </ul>
@@ -40,3 +48,5 @@ export default function AdicionarUsuario() {
         
   )
 }
+   
+ 
