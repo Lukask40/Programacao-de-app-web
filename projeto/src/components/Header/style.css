@@ -1,0 +1,43 @@
+/* ========================================= */
+/* HEADER - TEMA DEMOLIDOR                   */
+/* ========================================= */
+
+.header {
+    /* Fundo degradê: do vermelho muito escuro (sangue) para o preto */
+    background: linear-gradient(to bottom, #1a0000, #050505);
+    
+    /* Linha vermelha na base com brilho de radar */
+    border-bottom: 3px solid #cc0000;
+    box-shadow: 0 5px 20px rgba(204, 0, 0, 0.4);
+    
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    
+    /* Fixa o cabeçalho no topo da página ao rolar */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Estilizando a div interna como se fosse o Logo */
+.header div {
+    font-family: 'Oswald', sans-serif;
+    color: #ff1a1a;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px rgba(255, 26, 26, 0.6); /* Brilho neon suave */
+    transition: all 0.3s ease;
+    cursor: default;
+    display: inline-block; /* Necessário para a animação de scale funcionar bem */
+}
+
+/* Efeito de sentido aguçado ao passar o mouse */
+.header div:hover {
+    color: #ffffff; /* Fica branco no centro */
+    /* Aumenta a aura vermelha ao redor da letra */
+    text-shadow: 0 0 15px #cc0000, 0 0 30px #ff1a1a; 
+    transform: scale(1.05); /* Dá um leve zoom */
+}

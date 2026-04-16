@@ -1,15 +1,15 @@
 
 import './App.css'
-import AdicionarUsuario from './assets/components/AdicionarUauario'
-import Footer from './assets/components/Footer'
-import Header from './assets/components/Header'
+import AdicionarUsuario from './components/AdicionarUsuario'
+import Footer from './components/footer'
+import Header from './components/Header'
 
 function App() {
   
   return (
     <>
     <div className="app">
-      <h1> Meu Projeto</h1>
+      <h1>Daredevil</h1>
       <Header />
       <main>
         <AdicionarUsuario/>

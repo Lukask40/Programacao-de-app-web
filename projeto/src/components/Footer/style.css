@@ -1,0 +1,42 @@
+/* ========================================= */
+/* FOOTER - TEMA DEMOLIDOR                   */
+/* ========================================= */
+
+.footer {
+    /* Fundo escuro criando um degradê sutil */
+    background: linear-gradient(180deg, #0a0a0a, #000000);
+    
+    /* Linha vermelha no topo com brilho (Radar Sense) */
+    border-top: 2px solid #8b0000;
+    box-shadow: 0 -5px 20px rgba(204, 0, 0, 0.15);
+    
+    padding: 25px 15px;
+    text-align: center;
+    width: 100%;
+    
+    /* Posiciona no fundo da página se houver pouco conteúdo */
+    margin-top: auto; 
+}
+
+.footer p {
+    font-family: 'Roboto', sans-serif;
+    color: #777777; /* Cinza escuro para não ofuscar o conteúdo principal */
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+    letter-spacing: 0.5px;
+    transition: all 0.4s ease;
+}
+
+/* Efeito ao passar o mouse: o texto "acende" no escuro */
+.footer p:hover {
+    color: #e0e0e0;
+    text-shadow: 0 0 8px rgba(255, 26, 26, 0.6); /* Brilho vermelho */
+}
+
+/* Destacando o nome SENAI-BAHIA caso queira usar uma tag <strong> no futuro */
+.footer strong {
+    color: #cc0000;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+}

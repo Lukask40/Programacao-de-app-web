@@ -1,0 +1,184 @@
+/* Importando fontes com visual mais "urbano" e forte */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap');
+
+/* Fundo geral da página (caso não tenha outro estilo global) */
+body {
+    background-color: #050505; /* Noite escura de Hell's Kitchen */
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Container Principal do Formulário */
+.formulario {
+    background: linear-gradient(145deg, #111111, #1a1a1a);
+    border: 1px solid #330000;
+    border-top: 4px solid #cc0000; /* Linha vermelha no topo */
+    border-radius: 12px;
+    padding: 35px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(204, 0, 0, 0.2);
+    /* Animação do Sentido de Radar contínua no fundo */
+    animation: sentidoRadar 4s infinite alternate;
+}
+
+/* Títulos */
+.formulario h2 {
+    font-family: 'Oswald', sans-serif;
+    color: #ff1a1a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(255, 26, 26, 0.5);
+}
+
+/* Estrutura do Formulário */
+.formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Inputs (Campos de texto) */
+.formulario input {
+    background-color: #0a0a0a;
+    border: 1px solid #333;
+    border-left: 3px solid #660000;
+    color: #fff;
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Efeito quando o usuário clica no input (Sentido Aguçado) */
+.formulario input:focus {
+    border-color: #cc0000;
+    border-left: 4px solid #ff1a1a;
+    box-shadow: 0 0 12px rgba(204, 0, 0, 0.4);
+    transform: translateX(5px); /* Dá um pequeno salto para a direita */
+}
+
+/* Placeholder (texto de dica) */
+.formulario input::placeholder {
+    color: #666;
+    font-style: italic;
+}
+
+/* Botão de Adicionar */
+.formulario button {
+    background: linear-gradient(90deg, #8b0000, #cc0000);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(204, 0, 0, 0.3);
+    margin-top: 10px;
+}
+
+/* Efeito ao passar o mouse no botão */
+.formulario button:hover {
+    background: linear-gradient(90deg, #a00000, #ff1a1a);
+    box-shadow: 0 6px 20px rgba(255, 26, 26, 0.6);
+    transform: translateY(-3px); /* Levanta o botão */
+}
+
+/* Efeito ao clicar no botão */
+.formulario button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(204, 0, 0, 0.4);
+}
+
+/* Linha divisória */
+.formulario hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #cc0000, transparent);
+    margin: 30px 0;
+    opacity: 0.5;
+}
+
+/* Lista de Personagens */
+.formulario ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Item da Lista (Cada Personagem) */
+.formulario li {
+    background-color: #121212;
+    border: 1px solid #222;
+    border-left: 4px solid #cc0000;
+    padding: 12px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #ccc;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* Animação de entrada (Slide In) */
+    animation: entradaPersonagem 0.4s ease-out forwards;
+    transform-origin: left;
+}
+
+/* Efeito hover na lista */
+.formulario li:hover {
+    transform: scale(1.02) translateX(5px);
+    background-color: #1a0505; /* Fica levemente avermelhado no fundo */
+    border-left-color: #ff1a1a;
+    box-shadow: 0 4px 10px rgba(204, 0, 0, 0.2);
+}
+
+.formulario li strong {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 4px;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+
+/* ========================================= */
+/* KEYFRAMES (ANIMAÇÕES)                     */
+/* ========================================= */
+
+/* Efeito de "Sentido de Radar" na caixa principal */
+@keyframes sentidoRadar {
+    0% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 10px rgba(204, 0, 0, 0.1);
+    }
+    100% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 26, 26, 0.3);
+    }
+}
+
+/* Animação de entrada dos itens da lista (como se surgissem das sombras) */
+@keyframes entradaPersonagem {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}

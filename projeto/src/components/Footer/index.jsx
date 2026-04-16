@@ -4,7 +4,7 @@ function Footer() {
     return (
         <footer className='footer'>
             <p>
-                &copy; {new Date().getFullYear()} Meu Projeto. Todos os direitos reservados.
+                &copy; {new Date().getFullYear()} Deredevil.Marvel Studios.Todos os direitos reservados.
                 <br />
                 Senai--BAHIA
             </p>
