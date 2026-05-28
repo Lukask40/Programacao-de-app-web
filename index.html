@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Lucas Gabriel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Adicionei o FontAwesome para os ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Objetos animados no fundo -->
+    <div class="background-animado">
+        <div class="bola bola1"></div>
+        <div class="bola bola2"></div>
+        <div class="bola bola3"></div>
+    </div>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre Mim</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#conhecimentos">Conhecimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="sobre" class="hidden">
+        <!-- Ícones decorativos de jogos girando -->
+        <i class="fas fa-gamepad icone-decorativo decor-1"></i>
+        <i class="fas fa-ghost icone-decorativo decor-2"></i>
+
+        <!-- No lugar da foto, um ícone de Dev -->
+        <div class="container-avatar">
+            <i class="fas fa-code avatar-dev"></i>
+        </div>
+        
+        <h1>Olá, eu sou <span class="destaque">Lucas Gabriel</span></h1>
+        <h2>Desenvolvedor de Software | Game Dev Enthusiast</h2>
+        <p>Tenho 19 anos e sou graduando em Engenharia de Software pela UCSAL, cursando paralelamente o 2º semestre no SENAI. Sou apaixonado por tecnologia e focado em desenvolver aplicações interativas, com ênfase na criação de sites e desenvolvimento de jogos. Gosto de unir lógica e criatividade para construir soluções eficientes e projetos que tragam boas experiências para os usuários.</p>
+    </section>
+
+    <section id="projetos" class="hidden">
+        <h2>Meus Projetos</h2>
+        <div class="grid-projetos">
+            
+            <div class="card-projeto">
+                <div class="icone-projeto"><i class="fas fa-calculator"></i></div>
+                <h3>Calculadora Pós-ordem</h3>
+                <p>Implementação de uma calculadora utilizando a notação matemática pós-ordem. Projeto focado no uso eficiente da lógica e estruturas de dados.</p>
+                <a href="https://github.com/Lukask40/Calculadora-p-s-ordem" target="_blank" class="btn-link">Ver no GitHub</a>
+            </div>
+
+            <div class="card-projeto">
+                <div class="icone-projeto"><i class="fab fa-python"></i></div>
+                <h3>Introdução a Python</h3>
+                <p>Repositório focado nos primeiros passos com Python. Contém exercícios práticos, algoritmos básicos e fundamentos essenciais da linguagem.</p>
+                <a href="https://github.com/Lukask40/Python-" target="_blank" class="btn-link">Ver no GitHub</a>
+            </div>
+
+            <div class="card-projeto">
+                <div class="icone-projeto"><i class="fas fa-laptop-code"></i></div>
+                <h3>Em Desenvolvimento...</h3>
+                <p>Estou trabalhando em um novo projeto no momento. Em breve, as informações e o código fonte estarão disponíveis por aqui!</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="conhecimentos" class="hidden">
+        <h2>Linguagens e Ferramentas</h2>
+        <div class="habilidades">
+            <span><i class="fab fa-python"></i> Python</span>
+            <span><i class="fab fa-java"></i> Java</span>
+            <span><i class="fab fa-js"></i> JavaScript</span>
+            <span><i class="fab fa-html5"></i> HTML5</span>
+            <span><i class="fab fa-css3-alt"></i> CSS3</span>
+            <span><i class="fas fa-database"></i> SQL</span>
+            <span><i class="fas fa-git-alt"></i> Git / GitHub</span>
+        </div>
+    </section>
+
+    <section id="contato" class="hidden">
+        <h2>Vamos Trabalhar Juntos?</h2>
+        <p>Se você gostou do meu trabalho, sinta-se à vontade para entrar em contato comigo através das minhas redes ou por e-mail.</p>
+        <br>
+        <div class="links-contato">
+            <a href="https://www.linkedin.com/in/lucas-gabriel-b77585357/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/Lukask40" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lukagaby2016@gmail.com" target="_blank"><i class="fas fa-envelope"></i> E-mail</a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
